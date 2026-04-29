@@ -1,0 +1,53 @@
+auth_menu = st.sidebar.selectbox("Authentication", ["Login", "Signup"])
+
+# ---------- SIGNUP ----------
+if auth_menu == "Signup":
+
+    st.title("📝 Create Account")
+
+    new_user = st.text_input("Username")
+    new_pass = st.text_input("Password", type="password")
+
+    if st.button("Signup"):
+
+        with open("users.txt", "a") as f:
+            f.write(f"{new_user},{new_pass}\n")
+
+        st.success("Account created! Now login.")
+
+    st.stop()
+
+# ---------- LOGIN ----------
+if auth_menu == "Login":
+
+    st.title("🔐 Login")
+
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+
+    if st.button("Login"):
+
+        authenticated = False
+
+        if os.path.exists("users.txt"):
+            with open("users.txt", "r") as f:
+                for line in f:
+                    user, pwd = line.strip().split(",")
+                    if username == user and password == pwd:
+                        authenticated = True
+                        break
+
+        if authenticated:
+            st.session_state.login = True
+            st.success("Login successful")
+        else:
+            st.error("Invalid credentials")
+
+    st.stop()Janhavi,janhavi2004
+admin,admin
+admin,8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+admin,8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+admin,8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+admin,8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+admin,8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+admin,8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918

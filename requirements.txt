@@ -1,0 +1,6 @@
+streamlit==1.32.0
+numpy==1.26.4
+pandas==2.2.2
+opencv-contrib-python==4.9.0.80
+pillow==10.2.0
+openpyxl

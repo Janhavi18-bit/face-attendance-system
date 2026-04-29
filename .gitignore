@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+model.yml
+dataset/
+attendance.xlsx
+serviceAccountKey.json
